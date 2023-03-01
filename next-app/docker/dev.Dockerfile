@@ -15,6 +15,8 @@ RUN \
 COPY src ./src
 COPY public ./public
 COPY next.config.js .
+COPY postcss.config.js .
+COPY tailwind.config.js .
 COPY tsconfig.json .
 
 # Next.js collects completely anonymous telemetry data about general usage. Learn more here: https://nextjs.org/telemetry

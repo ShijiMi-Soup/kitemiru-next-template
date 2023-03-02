@@ -1,0 +1,6 @@
+{
+  // Comments are supported, like tsconfig.json
+  "entryPoints": ["./src/pages/index.tsx"],
+  "out": "docs",
+  "name": "Kitemiru Next"
+}

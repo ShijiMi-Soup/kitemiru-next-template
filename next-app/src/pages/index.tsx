@@ -1,6 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 
+/**
+ * # トップページ
+ *
+ * - テストで，タイトルとH1だけ設定しています．
+ * - [Tailwindcss](https://tailwindcss.com/)でスタイルしています．
+ */
 export default function Home() {
   return (
     <div>

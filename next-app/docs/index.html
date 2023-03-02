@@ -13,68 +13,52 @@
 <div class="tsd-page-title">
 <h2>Kitemiru Next</h2></div>
 <div class="tsd-panel tsd-typography">
-<a href="#with-docker-compose" id="with-docker-compose" style="color: inherit; text-decoration: none;">
-  <h1>With Docker Compose</h1>
-</a>
-<p>This example contains everything needed to get a Next.js development and production environment up and running with Docker Compose.</p>
-
-<a href="#benefits-of-docker-compose" id="benefits-of-docker-compose" style="color: inherit; text-decoration: none;">
-  <h2>Benefits of Docker Compose</h2>
+<a href="#next-app" id="next-app" style="color: inherit; text-decoration: none;">
+  <h1>next-app</h1>
 </a>
 <ul>
-<li>Develop locally without Node.js or TypeScript installed ✨</li>
-<li>Easy to run, consistent development environment across macOS, Windows, and Linux teams</li>
-<li>Run multiple Next.js apps, databases, and other microservices in a single deployment</li>
-<li>Multistage builds combined with <a href="https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files">Output Standalone</a> outputs up to 85% smaller apps (Approximately 110 MB compared to 1 GB with create-next-app)</li>
-<li>Easy configuration with YAML files</li>
+<li>kitmiru のフロントエンド</li>
 </ul>
 
-<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
-  <h2>How to use</h2>
+<a href="#技術スタック" id="技術スタック" style="color: inherit; text-decoration: none;">
+  <h2>技術スタック</h2>
 </a>
-<p>Execute <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app"><code>create-next-app</code></a> with <a href="https://docs.npmjs.com/cli/init">npm</a>, <a href="https://yarnpkg.com/lang/en/docs/cli/create/">Yarn</a>, or <a href="https://pnpm.io">pnpm</a> to bootstrap the example:</p>
-<pre><code class="language-bash"><span class="hl-0">npx </span><span class="hl-1">create-next-app</span><span class="hl-0"> </span><span class="hl-1">--example</span><span class="hl-0"> </span><span class="hl-1">with-docker-compose</span><span class="hl-0"> </span><span class="hl-1">with-docker-compose-app</span>
-</code></pre>
-<pre><code class="language-bash"><span class="hl-0">yarn </span><span class="hl-1">create</span><span class="hl-0"> </span><span class="hl-1">next-app</span><span class="hl-0"> </span><span class="hl-1">--example</span><span class="hl-0"> </span><span class="hl-1">with-docker-compose</span><span class="hl-0"> </span><span class="hl-1">with-docker-compose-app</span>
-</code></pre>
-<pre><code class="language-bash"><span class="hl-0">pnpm </span><span class="hl-1">create</span><span class="hl-0"> </span><span class="hl-1">next-app</span><span class="hl-0"> </span><span class="hl-1">--example</span><span class="hl-0"> </span><span class="hl-1">with-docker-compose</span><span class="hl-0"> </span><span class="hl-1">with-docker-compose-app</span>
-</code></pre>
-<p>Optionally, after the installation is complete:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>言語</td>
+<td><a href="https://www.typescriptlang.org/">TypeScript</a></td>
+</tr>
+<tr>
+<td>フレームワーク</td>
+<td><a href="https://nextjs.org/">Next.js</a></td>
+</tr>
+<tr>
+<td>スタイリング</td>
+<td><a href="https://tailwindcss.com/">Tailwind CSS</a></td>
+</tr>
+<tr>
+<td>テスト</td>
+<td><a href="https://jestjs.io/">Jest</a></td>
+</tr>
+<tr>
+<td>ドキュメンテーション</td>
+<td><a href="https://typedoc.org/">TypeDoc</a></td>
+</tr>
+</tbody></table>
+
+<a href="#ディレクトリ構成" id="ディレクトリ構成" style="color: inherit; text-decoration: none;">
+  <h2>ディレクトリ構成</h2>
+</a>
 <ul>
-<li>Run <code>cd next-app</code>, then run <code>npm install</code> or <code>yarn install</code> or <code>pnpm install</code> to generate a lockfile.</li>
+<li>端末にて <code>tree -d --gitignore</code> で生成 (2023/03/02)</li>
 </ul>
-<p>It is recommended to commit a lockfile to version control. Although the example will work without one, build errors are more likely to occur when using the latest version of all dependencies. This way, we&#39;re always using a known good configuration to develop and run in production.</p>
-
-<a href="#prerequisites" id="prerequisites" style="color: inherit; text-decoration: none;">
-  <h2>Prerequisites</h2>
-</a>
-<p>Install <a href="https://docs.docker.com/get-docker">Docker Desktop</a> for Mac, Windows, or Linux. Docker Desktop includes Docker Compose as part of the installation.</p>
-
-<a href="#development" id="development" style="color: inherit; text-decoration: none;">
-  <h2>Development</h2>
-</a>
-<p>First, run the development server:</p>
-<pre><code class="language-bash"><span class="hl-2"># Create a network, which allows containers to communicate</span><br/><span class="hl-2"># with each other, by using their container name as a hostname</span><br/><span class="hl-0">docker </span><span class="hl-1">network</span><span class="hl-0"> </span><span class="hl-1">create</span><span class="hl-0"> </span><span class="hl-1">my_network</span><br/><br/><span class="hl-2"># Build dev</span><br/><span class="hl-2"># Note: Keep v1 command until &quot;Use Docker Compose v2&quot; is enabled by default for Docker Desktop for Linux</span><br/><span class="hl-2"># Docker aliases `docker-compose` (v1 command) to `docker compose` (v2 command), but not the other way around</span><br/><span class="hl-0">docker-compose </span><span class="hl-1">-f</span><span class="hl-0"> </span><span class="hl-1">docker-compose.dev.yml</span><span class="hl-0"> </span><span class="hl-1">build</span><br/><br/><span class="hl-2"># Up dev</span><br/><span class="hl-0">docker-compose </span><span class="hl-1">-f</span><span class="hl-0"> </span><span class="hl-1">docker-compose.dev.yml</span><span class="hl-0"> </span><span class="hl-1">up</span>
-</code></pre>
-<p>Open <a href="http://localhost:3000">http://localhost:3000</a> with your browser to see the result.</p>
-<p>You can start editing the page by modifying <code>pages/index.tsx</code>. The page auto-updates as you edit the file.</p>
-
-<a href="#production" id="production" style="color: inherit; text-decoration: none;">
-  <h2>Production</h2>
-</a>
-<p>Multistage builds are highly recommended in production. Combined with the Next <a href="https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files">Output Standalone</a> feature, only <code>node_modules</code> files required for production are copied into the final Docker image.</p>
-<p>First, run the production server (Final image approximately 110 MB).</p>
-<pre><code class="language-bash"><span class="hl-2"># Create a network, which allows containers to communicate</span><br/><span class="hl-2"># with each other, by using their container name as a hostname</span><br/><span class="hl-0">docker </span><span class="hl-1">network</span><span class="hl-0"> </span><span class="hl-1">create</span><span class="hl-0"> </span><span class="hl-1">my_network</span><br/><br/><span class="hl-2"># Build prod</span><br/><span class="hl-0">docker-compose </span><span class="hl-1">-f</span><span class="hl-0"> </span><span class="hl-1">docker-compose.prod.yml</span><span class="hl-0"> </span><span class="hl-1">build</span><br/><br/><span class="hl-2"># Up prod in detached mode</span><br/><span class="hl-0">docker-compose </span><span class="hl-1">-f</span><span class="hl-0"> </span><span class="hl-1">docker-compose.prod.yml</span><span class="hl-0"> </span><span class="hl-1">up</span><span class="hl-0"> </span><span class="hl-1">-d</span>
-</code></pre>
-<p>Alternatively, run the production server without without multistage builds (Final image approximately 1 GB).</p>
-<pre><code class="language-bash"><span class="hl-2"># Create a network, which allows containers to communicate</span><br/><span class="hl-2"># with each other, by using their container name as a hostname</span><br/><span class="hl-0">docker </span><span class="hl-1">network</span><span class="hl-0"> </span><span class="hl-1">create</span><span class="hl-0"> </span><span class="hl-1">my_network</span><br/><br/><span class="hl-2"># Build prod without multistage</span><br/><span class="hl-0">docker-compose </span><span class="hl-1">-f</span><span class="hl-0"> </span><span class="hl-1">docker-compose.prod-without-multistage.yml</span><span class="hl-0"> </span><span class="hl-1">build</span><br/><br/><span class="hl-2"># Up prod without multistage in detached mode</span><br/><span class="hl-0">docker-compose </span><span class="hl-1">-f</span><span class="hl-0"> </span><span class="hl-1">docker-compose.prod-without-multistage.yml</span><span class="hl-0"> </span><span class="hl-1">up</span><span class="hl-0"> </span><span class="hl-1">-d</span>
-</code></pre>
-<p>Open <a href="http://localhost:3000">http://localhost:3000</a>.</p>
-
-<a href="#useful-commands" id="useful-commands" style="color: inherit; text-decoration: none;">
-  <h2>Useful commands</h2>
-</a>
-<pre><code class="language-bash"><span class="hl-2"># Stop all running containers</span><br/><span class="hl-0">docker </span><span class="hl-1">kill</span><span class="hl-0"> </span><span class="hl-1">$(docker ps -aq)</span><span class="hl-0"> &amp;&amp; docker </span><span class="hl-1">rm</span><span class="hl-0"> </span><span class="hl-1">$(docker ps -aq)</span><br/><br/><span class="hl-2"># Free space</span><br/><span class="hl-0">docker </span><span class="hl-1">system</span><span class="hl-0"> </span><span class="hl-1">prune</span><span class="hl-0"> </span><span class="hl-1">-af</span><span class="hl-0"> </span><span class="hl-1">--volumes</span>
+<pre><code class="language-shell"><span class="hl-0">next-app</span><br/><span class="hl-0">├── </span><span class="hl-1">docker</span><span class="hl-0">          </span><span class="hl-1">Docker関連のファイル</span><br/><span class="hl-0">├── </span><span class="hl-1">docs</span><span class="hl-0">            </span><span class="hl-1">TypeDocで生成されるドキュメンテーション</span><br/><span class="hl-0">│   </span><span class="hl-1">├──</span><span class="hl-0"> </span><span class="hl-1">assets</span><br/><span class="hl-0">│   </span><span class="hl-1">└──</span><span class="hl-0"> </span><span class="hl-1">functions</span><br/><span class="hl-0">├── </span><span class="hl-1">public</span><br/><span class="hl-0">├── </span><span class="hl-1">src</span><br/><span class="hl-0">│   </span><span class="hl-1">├──</span><span class="hl-0"> </span><span class="hl-1">pages</span><span class="hl-0">       </span><span class="hl-1">ページコンポーネント（Next.jsのルーティング）</span><br/><span class="hl-0">│   </span><span class="hl-1">└──</span><span class="hl-0"> </span><span class="hl-1">styles</span><span class="hl-0">      </span><span class="hl-1">アプリ内を横断して使用するスタイリング</span><br/><span class="hl-0">└── </span><span class="hl-1">test</span><span class="hl-0">            </span><span class="hl-1">テスティング関連ファイル（Jest関連）</span>
 </code></pre>
 </div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">

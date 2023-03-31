@@ -6,9 +6,9 @@
 
 ### ディレクトリ
 
-- [backend](backend/README.md): バックエンド
-- [docs](docs/README.md): 全体に関するドキュメンテーション
-- [frontend](frontend/README.md): フロントエンド
+- [backend](backend/): バックエンド
+- [docs](docs/): 全体に関するドキュメンテーション
+- [frontend](frontend/): フロントエンド
 
 ## 2. 環境構築の手順
 

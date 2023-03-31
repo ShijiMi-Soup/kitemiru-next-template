@@ -1,4 +1,4 @@
-# Kitemiru
+# kitemiru
 
 ## 1. 概要
 

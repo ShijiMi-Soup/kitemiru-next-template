@@ -3,7 +3,7 @@ FROM node:18-alpine AS base
 # Step 1. Rebuild the source code only when needed
 FROM base AS builder
 
-WORKDIR /app/next-app
+WORKDIR /app/frontend
 
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
@@ -47,7 +47,7 @@ RUN \
 # Step 2. Production image, copy all the files and run next
 FROM base AS runner
 
-WORKDIR /app/next-app
+WORKDIR /app/frontend
 
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs

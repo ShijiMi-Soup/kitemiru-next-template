@@ -1,4 +1,4 @@
-# next-app
+# frontend
 
 - kitmiru のフロントエンド
 
@@ -17,7 +17,7 @@
 - 端末にて `tree -d --gitignore` で生成 (2023/03/02)
 
 ```shell
-next-app
+frontend
 ├── docker          Docker関連のファイル
 ├── docs            TypeDocで生成されるドキュメンテーション
 │   ├── assets

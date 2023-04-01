@@ -1,0 +1,19 @@
+name: ci
+
+on: pull_request:
+
+jobs:
+  pre-check:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: yarn install
+      - name: Run Tests
+        rrun: yarn test

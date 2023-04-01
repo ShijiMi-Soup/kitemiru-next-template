@@ -1,12 +1,9 @@
 name: ci
 
-on:
-  push:
-    branches:
-      - "main"
+on: pull_request:
 
 jobs:
-  test:
+  pre-check:
     name: Run Tests
     runs-on: ubuntu-latest
     steps:

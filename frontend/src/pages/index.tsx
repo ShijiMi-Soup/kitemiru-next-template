@@ -17,6 +17,7 @@ export default function Home() {
 
       <main>
         <h1 className="text-4xl text-red-400">Kitemiru Next</h1>
+        <p>HELLO, WORLD!!</p>
       </main>
     </div>
   )
